@@ -1,0 +1,25 @@
+{
+  "name": "wang-xiya-rpg",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mingleiw/xiya-legend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mingleiw/xiya-legend/issues"
+  },
+  "homepage": "https://github.com/mingleiw/xiya-legend#readme",
+  "dependencies": {
+    "@capacitor/cli": "^8.1.0",
+    "@capacitor/core": "^8.1.0",
+    "@capacitor/ios": "^8.1.0"
+  }
+}
