@@ -1,106 +1,48 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>夕雅传说 - 汪夕雅的冒险</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            min-height: 100vh;
-            color: #fff;
-            overflow-x: hidden;
-        }
-        .game-container {
-            max-width: 414px;
-            margin: 0 auto;
-            padding: 20px;
-            min-height: 100vh;
-        }
-        .header { text-align: center; padding: 20px 0; }
-        .header h1 {
-            font-size: 28px;
-            background: linear-gradient(90deg, #e94560, #ff6b6b);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .stats-bar {
-            display: flex;
-            justify-content: space-around;
-            background: rgba(255,255,255,0.1);
-            border-radius: 15px;
-            padding: 15px;
-            margin-bottom: 20px;
-        }
-        .stat { text-align: center; }
-        .stat-value { font-size: 24px; font-weight: bold; color: #e94560; }
-        .stat-label { font-size: 12px; color: #aaa; }
-        .character-card {
-            background: linear-gradient(135deg, rgba(233,69,96,0.2), rgba(15,52,96,0.3));
-            border-radius: 20px;
-            padding: 20px;
-            margin-bottom: 20px;
-            border: 1px solid rgba(233,69,96,0.3);
-        }
-        .character-avatar {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, #e94560, #ff6b6b);
-            border-radius: 50%;
-            margin: 0 auto 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 48px;
-        }
-        .character-name { text-align: center; font-size: 24px; }
-        .character-title { text-align: center; color: #e94560; font-size: 14px; }
-        .story-box {
-            background: rgba(0,0,0,0.3);
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 20px;
-            line-height: 1.8;
-        }
-        .choices { display: flex; flex-direction: column; gap: 10px; }
-        .choice-btn {
-            background: linear-gradient(90deg, #e94560, #ff6b6b);
-            border: none;
-            color: white;
-            padding: 15px 20px;
-            border-radius: 12px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>夕雅传说 - 汪夕雅的冒险</title>
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-    <div class="game-container">
-        <div class="header"><h1>夕雅传说</h1></div>
-        <div class="stats-bar">
-            <div class="stat"><div class="stat-value">1</div><div class="stat-label">等级</div></div>
-            <div class="stat"><div class="stat-value">100</div><div class="stat-label">生命</div></div>
-            <div class="stat"><div class="stat-value">0</div><div class="stat-label">经验</div></div>
-        </div>
-        <div class="character-card">
-            <div class="character-avatar">👩‍🦰</div>
-            <div class="character-name">汪夕雅</div>
-            <div class="character-title">命运之子 · 光之继承者</div>
-        </div>
-        <div class="story-box">
-            在遥远的艾尔德拉大陆，一位名叫<strong>汪夕雅</strong>的少女从沉睡中醒来。<br><br>
-            她失去了所有记忆，只记得自己的名字。身边只有一把生锈的短剑和一枚神秘的水晶。<br><br>
-            远处，古老的钟声响起，似乎在召唤着她...
-        </div>
-        <div class="choices">
-            <button class="choice-btn">🗡️ 拿起短剑，探索森林</button>
-            <button class="choice-btn">💎 研究神秘水晶</button>
-            <button class="choice-btn">🔔 跟随钟声前往城镇</button>
-        </div>
+  <div class="game-container">
+    <div class="header">
+      <h1 id="title">夕雅传说</h1>
     </div>
+    <div class="subheader">可玩版 MVP · 自动存档 · 文字冒险</div>
+
+    <div class="stats-bar">
+      <div class="stat"><div class="stat-value" id="statLevel">1</div><div class="stat-label">等级</div></div>
+      <div class="stat"><div class="stat-value" id="statHp">100</div><div class="stat-label">生命</div></div>
+      <div class="stat"><div class="stat-value" id="statExp">0</div><div class="stat-label">经验</div></div>
+      <div class="stat"><div class="stat-value" id="statGold">0</div><div class="stat-label">金币</div></div>
+    </div>
+
+    <div class="character-card">
+      <div class="character-avatar" id="heroAvatar">👩🦰</div>
+      <div class="character-name" id="heroName">汪夕雅</div>
+      <div class="character-title" id="heroTitle">命运之子 · 光之继承者</div>
+    </div>
+
+    <div class="panel">
+      <button class="small-btn" id="btnRestart">🔁 重开</button>
+      <button class="small-btn" id="btnExport">📋 导出存档</button>
+      <button class="small-btn" id="btnImport">⬇️ 导入存档</button>
+    </div>
+
+    <div class="story-box" id="story"></div>
+    <div class="story-box" id="log" style="display:none"></div>
+
+    <div class="choices" id="choices"></div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="./story.js"></script>
+  <script src="./game.js"></script>
 </body>
 </html>
